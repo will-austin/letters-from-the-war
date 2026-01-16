@@ -1,60 +1,76 @@
 # Letters from the War
 
-A digital archive preserving wartime correspondence from World War II. This project displays scanned handwritten letters alongside their transcriptions, creating a personal window into history.
+A digital archive preserving wartime correspondence from World War II. This project displays scanned handwritten letters from CPL Chester Shiver to his mother, Mrs. Mae Shiver, alongside their transcriptions.
 
 ## Project Structure
 
 ```
 letters-from-the-war/
-├── index.html              # Main gallery/landing page
+├── index.html                    # Main gallery/landing page
 ├── css/
-│   ├── style.css           # Core styles and gallery layout
-│   └── letter.css          # Individual letter page styles
+│   ├── style.css                 # Core styles and gallery layout
+│   └── letter.css                # Individual letter page styles
 ├── letters/
-│   ├── letter-001.html     # Individual letter pages
-│   ├── letter-002.html
-│   └── letter-003.html
+│   └── letter-001.html           # Individual letter pages
 ├── images/
-│   ├── scans/              # High-resolution letter scans
-│   └── photos/             # Portrait and other photos
+│   ├── scans/
+│   │   └── 100444/               # Letter folder (format: MMDDYY)
+│   │       ├── 100444_1.png      # Page 1 scan
+│   │       ├── 100444_2.png      # Page 2 scan
+│   │       ├── 100444.docx       # OCR transcription
+│   │       └── Handwritten_*.png # Original scan composite
+│   └── photos/                   # Portrait and other photos
 └── README.md
 ```
 
+## Letter Folder Naming Convention
+
+Letter folders use the format `MMDDYY` (e.g., `100444` = October 4, 1944):
+- `100444_1.png`, `100444_2.png` - Individual page scans
+- `100444.docx` - OCR transcription from Microsoft Word
+- `Handwritten_*.png` - Original full scan
+
 ## Adding New Letters
 
-1. **Scan the letter** at high DPI (300+ recommended)
-2. **Create the HTML file** by copying an existing letter template from `/letters/`
-3. **Update the metadata** at the top (date, location, topics, etc.)
-4. **Replace the placeholder** with your scanned image
-5. **Update the transcription** with the OCR text
+1. **Create the folder** in `/images/scans/` using the date format `MMDDYY`
+2. **Add page scans** as `MMDDYY_1.png`, `MMDDYY_2.png`, etc.
+3. **Add the OCR file** as `MMDDYY.docx`
+4. **Create the HTML file** by copying `/letters/letter-001.html`
+5. **Update the letter HTML**:
+   - Change the date, location, and metadata
+   - Update the `pages` array in the JavaScript with the correct image paths
+   - Replace the transcription text
 6. **Add the letter card** to `index.html` in the gallery grid
 7. **Update navigation links** in adjacent letter pages
 
-## Adding Images
+## Design Features
 
-### Letter Scans
-Place high-resolution scans in `/images/scans/` and update the letter HTML:
+- **Cinematic WW2 Aesthetic**: Deep olive drab palette with gold accents
+- **Typewriter Typography**: "Special Elite" font for authentic correspondence feel
+- **Film Grain Effect**: Subtle animated grain overlay for vintage atmosphere
+- **Multi-page Support**: Navigate between letter pages with prev/next buttons
+- **Lightbox Viewer**: Click to view full-resolution scans
+- **Keyboard Navigation**: Arrow keys work in lightbox mode
+- **Responsive Design**: Works on mobile devices
 
-```html
-<img src="../images/scans/letter-001.jpg" alt="Letter dated March 15, 1943">
+## Fonts Used
+
+- **Cinzel**: Elegant serif for titles and headings
+- **Special Elite**: Typewriter font for letter text and UI elements
+- **Crimson Text**: Readable serif for body copy
+
+## Development
+
+To preview locally:
+```bash
+cd letters-from-the-war
+python3 -m http.server 8080
+# Visit http://localhost:8080
 ```
 
-### Portrait Photo
-Place the portrait in `/images/photos/` and update `index.html`:
+## Historical Context
 
-```html
-<img src="images/photos/grandfather-portrait.jpg" alt="Portrait">
-```
-
-## Design Notes
-
-- **Fonts**: Special Elite (typewriter), Playfair Display (headings), Source Serif 4 (body)
-- **Colors**: Olive drab military palette with aged paper tones
-- **Theme**: WW2-era correspondence aesthetic
-
-## Hosting
-
-This is a static site designed to be hosted as a subdirectory of willaustin.net.
+Chester Shiver served in Europe during World War II. The letters in this archive were written from locations including Neckargartach, near Heilbronn, Germany, to his mother Mae Shiver in Bluff Springs, Florida.
 
 ---
 
