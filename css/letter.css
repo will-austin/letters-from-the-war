@@ -1,0 +1,635 @@
+/* ===========================================
+   LETTER PAGE STYLES
+   Individual letter view with scan + transcription
+   =========================================== */
+
+/* ===========================================
+   LETTER HEADER
+   =========================================== */
+
+.letter-header {
+    background: var(--olive-dark);
+    padding: 1rem 2rem;
+    border-bottom: 3px solid var(--olive-medium);
+    position: sticky;
+    top: 0;
+    z-index: 100;
+}
+
+.letter-header .header-content {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    max-width: 1400px;
+    margin: 0 auto;
+}
+
+.back-link {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    color: var(--paper-aged);
+    text-decoration: none;
+    font-family: 'Special Elite', monospace;
+    font-size: 0.85rem;
+    letter-spacing: 0.05em;
+    padding: 0.5rem 1rem;
+    border: 1px solid var(--olive-light);
+    transition: all 0.2s ease;
+}
+
+.back-link:hover {
+    background: var(--olive-medium);
+    border-color: var(--paper-aged);
+}
+
+.back-link .arrow {
+    font-size: 1.2rem;
+    transition: transform 0.2s ease;
+}
+
+.back-link:hover .arrow {
+    transform: translateX(-3px);
+}
+
+.header-title {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+}
+
+.header-title .star {
+    color: var(--paper-aged);
+    font-size: 1.25rem;
+}
+
+.header-title h1 {
+    font-family: 'Playfair Display', Georgia, serif;
+    font-size: 1.25rem;
+    font-weight: 600;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--paper-cream);
+}
+
+/* ===========================================
+   LETTER CONTAINER
+   =========================================== */
+
+.letter-container {
+    max-width: 1400px;
+    margin: 0 auto;
+    padding: 2rem;
+}
+
+/* ===========================================
+   METADATA SECTION
+   =========================================== */
+
+.letter-metadata {
+    background: var(--paper-cream);
+    padding: 1.5rem 2rem;
+    margin-bottom: 2rem;
+    border-radius: 2px;
+    box-shadow: 0 4px 20px var(--shadow);
+    position: relative;
+    overflow: hidden;
+}
+
+.letter-metadata::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 4px;
+    background: var(--olive-primary);
+}
+
+.metadata-grid {
+    display: grid;
+    grid-template-columns: auto 1fr auto;
+    gap: 2rem;
+    align-items: start;
+}
+
+.metadata-primary {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+}
+
+.date-block, .location-block {
+    display: flex;
+    flex-direction: column;
+}
+
+.date-label, .location-label {
+    font-family: 'Special Elite', monospace;
+    font-size: 0.65rem;
+    letter-spacing: 0.2em;
+    color: var(--olive-medium);
+    text-transform: uppercase;
+}
+
+.date-value {
+    font-family: 'Playfair Display', Georgia, serif;
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: var(--olive-dark);
+}
+
+.location-value {
+    font-family: 'Special Elite', monospace;
+    font-size: 1rem;
+    color: var(--ink-faded);
+}
+
+.metadata-secondary {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1.5rem;
+    padding-top: 0.5rem;
+}
+
+.metadata-item {
+    display: flex;
+    flex-direction: column;
+}
+
+.meta-label {
+    font-family: 'Special Elite', monospace;
+    font-size: 0.6rem;
+    letter-spacing: 0.15em;
+    color: var(--olive-medium);
+    text-transform: uppercase;
+}
+
+.meta-value {
+    font-family: 'Source Serif 4', Georgia, serif;
+    font-size: 0.95rem;
+    color: var(--ink-black);
+}
+
+.metadata-topics {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+}
+
+.topics-label {
+    font-family: 'Special Elite', monospace;
+    font-size: 0.6rem;
+    letter-spacing: 0.15em;
+    color: var(--olive-medium);
+    text-transform: uppercase;
+}
+
+.topics-list {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.4rem;
+}
+
+.topic-tag {
+    font-family: 'Special Elite', monospace;
+    font-size: 0.7rem;
+    padding: 0.3rem 0.6rem;
+    background: var(--olive-primary);
+    color: var(--paper-cream);
+    letter-spacing: 0.05em;
+}
+
+.censor-stamp {
+    position: absolute;
+    top: 1rem;
+    right: 1.5rem;
+    padding: 0.75rem 1rem;
+    border: 4px double var(--red-stamp);
+    color: var(--red-stamp);
+    font-family: 'Special Elite', monospace;
+    font-size: 0.7rem;
+    letter-spacing: 0.15em;
+    text-align: center;
+    transform: rotate(12deg);
+    opacity: 0.5;
+}
+
+.censor-stamp span {
+    display: block;
+    line-height: 1.3;
+}
+
+/* ===========================================
+   LETTER CONTENT - SCAN + TRANSCRIPTION
+   =========================================== */
+
+.letter-content {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 2rem;
+    margin-bottom: 2rem;
+}
+
+/* Scan Section */
+.letter-scan {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+}
+
+.scan-wrapper {
+    position: relative;
+    background: var(--ink-black);
+    padding: 1rem;
+    border-radius: 2px;
+    box-shadow: 0 8px 30px var(--shadow);
+}
+
+.scan-placeholder {
+    aspect-ratio: 8.5/11;
+    background: 
+        linear-gradient(to bottom, 
+            var(--paper-aged) 0%,
+            var(--paper-cream) 20%,
+            var(--paper-cream) 80%,
+            var(--paper-dark) 100%
+        );
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    overflow: hidden;
+}
+
+.scan-placeholder::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: 
+        repeating-linear-gradient(
+            0deg,
+            transparent,
+            transparent 23px,
+            rgba(100, 149, 237, 0.08) 23px,
+            rgba(100, 149, 237, 0.08) 24px
+        );
+    pointer-events: none;
+}
+
+/* Margin line effect */
+.scan-placeholder::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 10%;
+    width: 1px;
+    background: rgba(255, 100, 100, 0.2);
+}
+
+.placeholder-inner {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.5rem;
+    color: var(--olive-medium);
+    text-align: center;
+    opacity: 0.5;
+}
+
+.scan-icon {
+    font-size: 3rem;
+}
+
+.scan-text {
+    font-family: 'Special Elite', monospace;
+    font-size: 1rem;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+}
+
+.scan-dimensions {
+    font-family: 'Source Serif 4', Georgia, serif;
+    font-size: 0.8rem;
+    font-style: italic;
+}
+
+.scan-frame {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    pointer-events: none;
+}
+
+.scan-controls {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+}
+
+.scan-btn {
+    font-family: 'Special Elite', monospace;
+    font-size: 0.8rem;
+    padding: 0.5rem 1rem;
+    background: var(--olive-primary);
+    color: var(--paper-cream);
+    border: none;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    transition: background 0.2s ease;
+}
+
+.scan-btn:hover {
+    background: var(--olive-medium);
+}
+
+.scan-info {
+    font-family: 'Source Serif 4', Georgia, serif;
+    font-size: 0.8rem;
+    color: var(--olive-faded);
+    font-style: italic;
+}
+
+/* Transcription Section */
+.letter-transcription {
+    background: var(--paper-cream);
+    border-radius: 2px;
+    box-shadow: 0 4px 20px var(--shadow);
+    overflow: hidden;
+}
+
+.transcription-header {
+    background: var(--olive-primary);
+    padding: 1rem 1.5rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.transcription-header h2 {
+    font-family: 'Special Elite', monospace;
+    font-size: 0.9rem;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--paper-cream);
+    margin: 0;
+}
+
+.typewriter-icon {
+    font-size: 1.25rem;
+    opacity: 0.7;
+}
+
+.transcription-body {
+    padding: 2rem;
+    color: var(--ink-black);
+    position: relative;
+}
+
+.transcription-body::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: 
+        repeating-linear-gradient(
+            0deg,
+            transparent,
+            transparent 27px,
+            rgba(139, 69, 19, 0.04) 27px,
+            rgba(139, 69, 19, 0.04) 28px
+        );
+    pointer-events: none;
+}
+
+.letter-salutation {
+    font-family: 'Special Elite', 'Courier New', monospace;
+    font-size: 1.1rem;
+    margin-bottom: 1.5rem;
+    color: var(--ink-black);
+    position: relative;
+}
+
+.letter-text {
+    position: relative;
+}
+
+.letter-text p {
+    font-family: 'Special Elite', 'Courier New', monospace;
+    font-size: 0.95rem;
+    line-height: 1.8;
+    margin-bottom: 1.25rem;
+    text-align: justify;
+    color: var(--ink-faded);
+}
+
+.letter-text p:last-child {
+    margin-bottom: 0;
+}
+
+.letter-closing {
+    margin-top: 2rem;
+    font-family: 'Special Elite', 'Courier New', monospace;
+    font-size: 1rem;
+    position: relative;
+}
+
+.letter-closing p {
+    margin-bottom: 0.5rem;
+    color: var(--ink-faded);
+}
+
+.signature {
+    font-style: italic;
+    font-size: 1.1rem;
+    color: var(--ink-black);
+    margin-left: 2rem;
+}
+
+.letter-postscript {
+    margin-top: 1.5rem;
+    padding-top: 1rem;
+    border-top: 1px dashed var(--olive-light);
+    font-family: 'Special Elite', 'Courier New', monospace;
+    font-size: 0.9rem;
+    color: var(--ink-faded);
+    position: relative;
+}
+
+.letter-postscript strong {
+    color: var(--ink-black);
+}
+
+.transcription-notes {
+    background: var(--paper-dark);
+    padding: 1.5rem 2rem;
+    border-top: 2px solid var(--olive-light);
+}
+
+.transcription-notes h3 {
+    font-family: 'Special Elite', monospace;
+    font-size: 0.75rem;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    color: var(--olive-medium);
+    margin-bottom: 0.5rem;
+}
+
+.transcription-notes p {
+    font-family: 'Source Serif 4', Georgia, serif;
+    font-size: 0.85rem;
+    color: var(--ink-faded);
+    font-style: italic;
+    line-height: 1.6;
+    margin: 0;
+}
+
+/* ===========================================
+   LETTER NAVIGATION
+   =========================================== */
+
+.letter-nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1.5rem 0;
+    border-top: 2px solid var(--olive-medium);
+    border-bottom: 2px solid var(--olive-medium);
+}
+
+.nav-link {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    font-family: 'Special Elite', monospace;
+    font-size: 0.85rem;
+    color: var(--paper-aged);
+    text-decoration: none;
+    padding: 0.75rem 1.25rem;
+    border: 1px solid var(--olive-light);
+    transition: all 0.2s ease;
+    letter-spacing: 0.05em;
+}
+
+.nav-link:hover:not(.disabled) {
+    background: var(--olive-medium);
+    border-color: var(--paper-aged);
+}
+
+.nav-link.disabled {
+    opacity: 0.3;
+    cursor: not-allowed;
+}
+
+.nav-link.home {
+    background: var(--olive-primary);
+    border-color: var(--olive-primary);
+}
+
+.nav-link.home:hover {
+    background: var(--olive-medium);
+}
+
+.nav-arrow {
+    font-size: 1.1rem;
+}
+
+.nav-link.prev:hover:not(.disabled) .nav-arrow {
+    transform: translateX(-3px);
+}
+
+.nav-link.next:hover:not(.disabled) .nav-arrow {
+    transform: translateX(3px);
+}
+
+.nav-arrow {
+    transition: transform 0.2s ease;
+}
+
+/* ===========================================
+   RESPONSIVE - LETTER PAGE
+   =========================================== */
+
+@media (max-width: 1024px) {
+    .letter-content {
+        grid-template-columns: 1fr;
+    }
+    
+    .scan-placeholder {
+        max-width: 500px;
+        margin: 0 auto;
+    }
+    
+    .metadata-grid {
+        grid-template-columns: 1fr 1fr;
+    }
+    
+    .metadata-topics {
+        grid-column: span 2;
+    }
+}
+
+@media (max-width: 768px) {
+    .letter-header .header-content {
+        flex-direction: column;
+        gap: 1rem;
+    }
+    
+    .metadata-grid {
+        grid-template-columns: 1fr;
+        gap: 1.5rem;
+    }
+    
+    .metadata-topics {
+        grid-column: span 1;
+    }
+    
+    .censor-stamp {
+        position: relative;
+        top: auto;
+        right: auto;
+        transform: rotate(0);
+        margin-top: 1rem;
+        display: inline-block;
+    }
+    
+    .letter-nav {
+        flex-direction: column;
+        gap: 1rem;
+    }
+    
+    .nav-link {
+        width: 100%;
+        justify-content: center;
+    }
+}
+
+@media (max-width: 480px) {
+    .letter-container {
+        padding: 1rem;
+    }
+    
+    .letter-metadata {
+        padding: 1rem 1.25rem;
+    }
+    
+    .transcription-body {
+        padding: 1.5rem;
+    }
+    
+    .letter-text p {
+        font-size: 0.9rem;
+        line-height: 1.7;
+    }
+}

@@ -1,0 +1,562 @@
+/* ===========================================
+   LETTERS FROM THE WAR - WW2 Archive Theme
+   =========================================== */
+
+:root {
+    /* Olive Drab & Military Colors */
+    --olive-dark: #2D3022;
+    --olive-primary: #4A4E3C;
+    --olive-medium: #5C604A;
+    --olive-light: #6B7058;
+    --olive-faded: #8A8E78;
+    
+    /* Paper & Aged Tones */
+    --paper-cream: #F5F0E1;
+    --paper-aged: #E8E0CC;
+    --paper-dark: #D4C9B0;
+    --sepia: #704214;
+    --sepia-light: #8B6914;
+    
+    /* Accent Colors */
+    --rust: #8B4513;
+    --ink-black: #1A1A18;
+    --ink-faded: #3A3A35;
+    --red-stamp: #8B2323;
+    
+    /* Functional */
+    --shadow: rgba(26, 26, 24, 0.3);
+    --shadow-light: rgba(26, 26, 24, 0.15);
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    font-size: 16px;
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: 'Source Serif 4', Georgia, serif;
+    background: 
+        linear-gradient(180deg, var(--olive-dark) 0%, var(--olive-primary) 50%, var(--olive-medium) 100%);
+    background-attachment: fixed;
+    color: var(--paper-cream);
+    min-height: 100vh;
+    line-height: 1.6;
+    position: relative;
+}
+
+/* Film grain overlay for vintage effect */
+.film-grain {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+    opacity: 0.03;
+    z-index: 1000;
+    background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%' height='100%' filter='url(%23noise)'/%3E%3C/svg%3E");
+}
+
+/* ===========================================
+   HEADER
+   =========================================== */
+
+.main-header {
+    background: 
+        linear-gradient(to bottom, rgba(0,0,0,0.3), transparent),
+        var(--olive-dark);
+    padding: 3rem 2rem 2rem;
+    text-align: center;
+    border-bottom: 3px solid var(--olive-light);
+    position: relative;
+}
+
+.main-header::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 4px;
+    background: repeating-linear-gradient(
+        90deg,
+        var(--olive-light) 0px,
+        var(--olive-light) 20px,
+        transparent 20px,
+        transparent 25px
+    );
+}
+
+.header-content {
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+.insignia {
+    margin-bottom: 1rem;
+}
+
+.insignia .star {
+    font-size: 2.5rem;
+    color: var(--paper-aged);
+    text-shadow: 0 2px 4px var(--shadow);
+    display: inline-block;
+    animation: subtle-glow 3s ease-in-out infinite;
+}
+
+@keyframes subtle-glow {
+    0%, 100% { opacity: 0.8; }
+    50% { opacity: 1; }
+}
+
+.main-header h1 {
+    font-family: 'Playfair Display', Georgia, serif;
+    font-size: clamp(2rem, 5vw, 3.5rem);
+    font-weight: 700;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    color: var(--paper-cream);
+    text-shadow: 2px 2px 4px var(--shadow);
+    margin-bottom: 0.5rem;
+}
+
+.subtitle {
+    font-family: 'Special Elite', 'Courier New', monospace;
+    font-size: 1rem;
+    color: var(--olive-faded);
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+}
+
+.header-line {
+    width: 200px;
+    height: 2px;
+    background: linear-gradient(90deg, transparent, var(--olive-light), transparent);
+    margin: 1.5rem auto 0;
+}
+
+/* ===========================================
+   CONTAINER & LAYOUT
+   =========================================== */
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 2rem;
+}
+
+/* ===========================================
+   INTRO SECTION
+   =========================================== */
+
+.intro-section {
+    display: grid;
+    grid-template-columns: 280px 1fr;
+    gap: 3rem;
+    align-items: start;
+    margin-bottom: 4rem;
+    padding: 2rem;
+    background: var(--paper-cream);
+    border-radius: 2px;
+    box-shadow: 
+        0 4px 20px var(--shadow),
+        inset 0 0 100px rgba(139, 69, 19, 0.05);
+    position: relative;
+}
+
+.intro-section::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: 
+        repeating-linear-gradient(
+            0deg,
+            transparent,
+            transparent 28px,
+            rgba(139, 69, 19, 0.03) 28px,
+            rgba(139, 69, 19, 0.03) 29px
+        );
+    pointer-events: none;
+    border-radius: 2px;
+}
+
+.portrait-frame {
+    position: relative;
+    aspect-ratio: 3/4;
+    background: var(--paper-dark);
+    border: 8px solid var(--olive-medium);
+    box-shadow: 
+        inset 0 0 20px rgba(0,0,0,0.2),
+        0 4px 12px var(--shadow);
+}
+
+.portrait-placeholder {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: 
+        linear-gradient(135deg, var(--paper-dark) 0%, var(--paper-aged) 100%);
+    color: var(--olive-medium);
+    font-family: 'Special Elite', monospace;
+    text-align: center;
+}
+
+.placeholder-text {
+    font-size: 1rem;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    opacity: 0.6;
+}
+
+.frame-corner {
+    position: absolute;
+    width: 20px;
+    height: 20px;
+    border: 2px solid var(--sepia);
+}
+
+.frame-corner.tl { top: -4px; left: -4px; border-right: none; border-bottom: none; }
+.frame-corner.tr { top: -4px; right: -4px; border-left: none; border-bottom: none; }
+.frame-corner.bl { bottom: -4px; left: -4px; border-right: none; border-top: none; }
+.frame-corner.br { bottom: -4px; right: -4px; border-left: none; border-top: none; }
+
+.intro-text {
+    color: var(--ink-black);
+    position: relative;
+    z-index: 1;
+}
+
+.intro-text h2 {
+    font-family: 'Playfair Display', Georgia, serif;
+    font-size: 1.75rem;
+    font-weight: 600;
+    margin-bottom: 1rem;
+    color: var(--olive-dark);
+    border-bottom: 2px solid var(--olive-light);
+    padding-bottom: 0.5rem;
+}
+
+.intro-text p {
+    margin-bottom: 1rem;
+    color: var(--ink-faded);
+    text-align: justify;
+}
+
+.stamp {
+    position: absolute;
+    bottom: 1rem;
+    right: 1rem;
+    padding: 0.5rem 1rem;
+    border: 3px solid var(--red-stamp);
+    color: var(--red-stamp);
+    font-family: 'Special Elite', monospace;
+    font-size: 0.75rem;
+    letter-spacing: 0.15em;
+    text-align: center;
+    transform: rotate(-8deg);
+    opacity: 0.7;
+}
+
+.stamp span {
+    display: block;
+}
+
+/* ===========================================
+   LETTERS GALLERY
+   =========================================== */
+
+.letters-gallery {
+    margin-bottom: 3rem;
+}
+
+.section-title {
+    font-family: 'Playfair Display', Georgia, serif;
+    font-size: 1.5rem;
+    text-align: center;
+    margin-bottom: 2rem;
+    color: var(--paper-cream);
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+}
+
+.title-decoration {
+    margin: 0 0.5rem;
+    opacity: 0.6;
+}
+
+.letters-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+    gap: 1.5rem;
+}
+
+.letter-card {
+    background: var(--paper-cream);
+    border-radius: 2px;
+    text-decoration: none;
+    display: flex;
+    overflow: hidden;
+    box-shadow: 0 4px 15px var(--shadow);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    position: relative;
+}
+
+.letter-card:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 8px 25px var(--shadow);
+}
+
+.letter-card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: linear-gradient(135deg, transparent 50%, rgba(139, 69, 19, 0.05) 100%);
+    pointer-events: none;
+}
+
+.card-date {
+    background: var(--olive-primary);
+    color: var(--paper-cream);
+    padding: 1rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    min-width: 70px;
+    text-align: center;
+}
+
+.card-date .month {
+    font-family: 'Special Elite', monospace;
+    font-size: 0.7rem;
+    letter-spacing: 0.15em;
+    opacity: 0.8;
+}
+
+.card-date .day {
+    font-family: 'Playfair Display', Georgia, serif;
+    font-size: 1.75rem;
+    font-weight: 700;
+    line-height: 1;
+    margin: 0.25rem 0;
+}
+
+.card-date .year {
+    font-family: 'Special Elite', monospace;
+    font-size: 0.7rem;
+    letter-spacing: 0.1em;
+    opacity: 0.8;
+}
+
+.card-content {
+    padding: 1rem 1.25rem;
+    flex: 1;
+    position: relative;
+}
+
+.card-content h3 {
+    font-family: 'Special Elite', 'Courier New', monospace;
+    font-size: 1rem;
+    color: var(--olive-dark);
+    margin-bottom: 0.5rem;
+}
+
+.card-excerpt {
+    font-size: 0.85rem;
+    color: var(--ink-faded);
+    font-style: italic;
+    line-height: 1.5;
+    margin-bottom: 0.75rem;
+}
+
+.card-topics {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+}
+
+.topic {
+    font-family: 'Special Elite', monospace;
+    font-size: 0.65rem;
+    padding: 0.2rem 0.5rem;
+    background: var(--olive-light);
+    color: var(--paper-cream);
+    letter-spacing: 0.05em;
+    text-transform: uppercase;
+}
+
+.card-stamp {
+    position: absolute;
+    top: 0.75rem;
+    right: 0.75rem;
+    font-family: 'Special Elite', monospace;
+    font-size: 0.6rem;
+    padding: 0.25rem 0.5rem;
+    border: 2px solid var(--rust);
+    color: var(--rust);
+    letter-spacing: 0.1em;
+    transform: rotate(3deg);
+}
+
+.card-stamp.faded {
+    opacity: 0.4;
+    border-color: var(--olive-faded);
+    color: var(--olive-faded);
+}
+
+.letter-card.coming-soon {
+    opacity: 0.6;
+    cursor: default;
+}
+
+.letter-card.coming-soon:hover {
+    transform: none;
+    box-shadow: 0 4px 15px var(--shadow);
+}
+
+/* ===========================================
+   ARCHIVE INFO
+   =========================================== */
+
+.archive-info {
+    margin-bottom: 2rem;
+}
+
+.info-box {
+    background: rgba(0, 0, 0, 0.2);
+    padding: 2rem;
+    border-left: 4px solid var(--olive-light);
+}
+
+.info-box h3 {
+    font-family: 'Special Elite', monospace;
+    font-size: 1rem;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    margin-bottom: 1rem;
+    color: var(--paper-aged);
+}
+
+.info-box p {
+    color: var(--paper-cream);
+    opacity: 0.9;
+    margin-bottom: 0.75rem;
+}
+
+.info-box .note {
+    font-size: 0.9rem;
+    font-style: italic;
+    opacity: 0.7;
+    margin-bottom: 0;
+}
+
+/* ===========================================
+   FOOTER
+   =========================================== */
+
+.main-footer {
+    background: var(--olive-dark);
+    padding: 2rem;
+    text-align: center;
+    border-top: 3px solid var(--olive-medium);
+}
+
+.footer-content {
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+.main-footer p {
+    font-family: 'Special Elite', monospace;
+    font-size: 0.85rem;
+    color: var(--olive-faded);
+    letter-spacing: 0.1em;
+}
+
+.main-footer a {
+    color: var(--paper-aged);
+    text-decoration: none;
+    border-bottom: 1px solid transparent;
+    transition: border-color 0.2s ease;
+}
+
+.main-footer a:hover {
+    border-bottom-color: var(--paper-aged);
+}
+
+.footer-note {
+    margin-top: 0.5rem;
+    font-size: 0.75rem !important;
+    opacity: 0.6;
+}
+
+/* ===========================================
+   RESPONSIVE
+   =========================================== */
+
+@media (max-width: 768px) {
+    .intro-section {
+        grid-template-columns: 1fr;
+        gap: 2rem;
+    }
+    
+    .portrait-frame {
+        max-width: 200px;
+        margin: 0 auto;
+    }
+    
+    .stamp {
+        position: relative;
+        bottom: auto;
+        right: auto;
+        display: inline-block;
+        margin-top: 1rem;
+        transform: rotate(-3deg);
+    }
+    
+    .letter-card {
+        flex-direction: column;
+    }
+    
+    .card-date {
+        flex-direction: row;
+        gap: 0.5rem;
+        padding: 0.75rem;
+    }
+    
+    .card-date .day {
+        font-size: 1.25rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .container {
+        padding: 1rem;
+    }
+    
+    .main-header {
+        padding: 2rem 1rem;
+    }
+    
+    .intro-section {
+        padding: 1.5rem;
+    }
+    
+    .letters-grid {
+        grid-template-columns: 1fr;
+    }
+}
