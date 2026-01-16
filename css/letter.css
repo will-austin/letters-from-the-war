@@ -1,19 +1,21 @@
 /* ===========================================
    LETTER PAGE STYLES
-   Individual letter view with scan + transcription
+   Cinematic Individual Letter View
    =========================================== */
 
 /* ===========================================
-   LETTER HEADER
+   LETTER HEADER - Minimal Navigation Bar
    =========================================== */
 
 .letter-header {
-    background: var(--olive-dark);
-    padding: 1rem 2rem;
-    border-bottom: 3px solid var(--olive-medium);
+    background: 
+        linear-gradient(to bottom, var(--olive-darkest) 0%, rgba(26, 29, 21, 0.95) 100%);
+    padding: 1.25rem 2rem;
+    border-bottom: 1px solid var(--olive-medium);
     position: sticky;
     top: 0;
     z-index: 100;
+    backdrop-filter: blur(10px);
 }
 
 .letter-header .header-content {
@@ -27,47 +29,50 @@
 .back-link {
     display: flex;
     align-items: center;
-    gap: 0.5rem;
+    gap: 0.75rem;
     color: var(--paper-aged);
     text-decoration: none;
     font-family: 'Special Elite', monospace;
     font-size: 0.85rem;
-    letter-spacing: 0.05em;
-    padding: 0.5rem 1rem;
-    border: 1px solid var(--olive-light);
-    transition: all 0.2s ease;
+    letter-spacing: 0.1em;
+    padding: 0.6rem 1.25rem;
+    border: 1px solid var(--olive-medium);
+    background: rgba(0,0,0,0.2);
+    transition: all 0.3s ease;
 }
 
 .back-link:hover {
-    background: var(--olive-medium);
-    border-color: var(--paper-aged);
+    background: var(--olive-primary);
+    border-color: var(--gold-dark);
+    color: var(--gold);
 }
 
 .back-link .arrow {
-    font-size: 1.2rem;
-    transition: transform 0.2s ease;
+    font-size: 1.3rem;
+    transition: transform 0.3s ease;
 }
 
 .back-link:hover .arrow {
-    transform: translateX(-3px);
+    transform: translateX(-5px);
 }
 
 .header-title {
     display: flex;
     align-items: center;
-    gap: 0.75rem;
+    gap: 1rem;
 }
 
 .header-title .star {
-    color: var(--paper-aged);
-    font-size: 1.25rem;
+    color: var(--gold);
+    font-size: 1.5rem;
+    text-shadow: 0 0 20px rgba(196, 163, 90, 0.4);
 }
 
 .header-title h1 {
-    font-family: 'Playfair Display', Georgia, serif;
+    font-family: 'Cinzel', Georgia, serif;
     font-size: 1.25rem;
     font-weight: 600;
-    letter-spacing: 0.1em;
+    letter-spacing: 0.15em;
     text-transform: uppercase;
     color: var(--paper-cream);
 }
@@ -77,25 +82,28 @@
    =========================================== */
 
 .letter-container {
-    max-width: 1400px;
+    max-width: 1500px;
     margin: 0 auto;
-    padding: 2rem;
+    padding: 3rem 2rem;
 }
 
 /* ===========================================
-   METADATA SECTION
+   METADATA SECTION - Dramatic Information Bar
    =========================================== */
 
 .letter-metadata {
-    background: var(--paper-cream);
-    padding: 1.5rem 2rem;
-    margin-bottom: 2rem;
-    border-radius: 2px;
-    box-shadow: 0 4px 20px var(--shadow);
+    background: 
+        linear-gradient(135deg, var(--paper-aged) 0%, var(--paper-cream) 50%, var(--paper-aged) 100%);
+    padding: 2rem 2.5rem;
+    margin-bottom: 3rem;
+    box-shadow: 
+        0 20px 60px var(--shadow-heavy),
+        0 8px 25px var(--shadow-medium);
     position: relative;
     overflow: hidden;
 }
 
+/* Gold accent line at top */
 .letter-metadata::before {
     content: '';
     position: absolute;
@@ -103,20 +111,41 @@
     left: 0;
     right: 0;
     height: 4px;
-    background: var(--olive-primary);
+    background: linear-gradient(90deg, var(--gold-dark), var(--gold), var(--gold-dark));
+}
+
+/* Paper texture */
+.letter-metadata::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: 
+        repeating-linear-gradient(
+            0deg,
+            transparent,
+            transparent 23px,
+            rgba(139, 69, 19, 0.02) 23px,
+            rgba(139, 69, 19, 0.02) 24px
+        );
+    pointer-events: none;
 }
 
 .metadata-grid {
     display: grid;
     grid-template-columns: auto 1fr auto;
-    gap: 2rem;
+    gap: 3rem;
     align-items: start;
+    position: relative;
+    z-index: 1;
 }
 
 .metadata-primary {
     display: flex;
     flex-direction: column;
-    gap: 1rem;
+    gap: 1.25rem;
 }
 
 .date-block, .location-block {
@@ -127,28 +156,30 @@
 .date-label, .location-label {
     font-family: 'Special Elite', monospace;
     font-size: 0.65rem;
-    letter-spacing: 0.2em;
+    letter-spacing: 0.25em;
     color: var(--olive-medium);
     text-transform: uppercase;
+    margin-bottom: 0.25rem;
 }
 
 .date-value {
-    font-family: 'Playfair Display', Georgia, serif;
-    font-size: 1.5rem;
+    font-family: 'Cinzel', Georgia, serif;
+    font-size: 1.75rem;
     font-weight: 700;
     color: var(--olive-dark);
+    letter-spacing: 0.02em;
 }
 
 .location-value {
     font-family: 'Special Elite', monospace;
-    font-size: 1rem;
+    font-size: 1.1rem;
     color: var(--ink-faded);
 }
 
 .metadata-secondary {
     display: flex;
     flex-wrap: wrap;
-    gap: 1.5rem;
+    gap: 2rem;
     padding-top: 0.5rem;
 }
 
@@ -160,14 +191,15 @@
 .meta-label {
     font-family: 'Special Elite', monospace;
     font-size: 0.6rem;
-    letter-spacing: 0.15em;
+    letter-spacing: 0.2em;
     color: var(--olive-medium);
     text-transform: uppercase;
+    margin-bottom: 0.25rem;
 }
 
 .meta-value {
-    font-family: 'Source Serif 4', Georgia, serif;
-    font-size: 0.95rem;
+    font-family: 'Crimson Text', Georgia, serif;
+    font-size: 1rem;
     color: var(--ink-black);
 }
 
@@ -180,7 +212,7 @@
 .topics-label {
     font-family: 'Special Elite', monospace;
     font-size: 0.6rem;
-    letter-spacing: 0.15em;
+    letter-spacing: 0.2em;
     color: var(--olive-medium);
     text-transform: uppercase;
 }
@@ -188,62 +220,90 @@
 .topics-list {
     display: flex;
     flex-wrap: wrap;
-    gap: 0.4rem;
+    gap: 0.5rem;
 }
 
 .topic-tag {
     font-family: 'Special Elite', monospace;
     font-size: 0.7rem;
-    padding: 0.3rem 0.6rem;
+    padding: 0.35rem 0.75rem;
     background: var(--olive-primary);
     color: var(--paper-cream);
-    letter-spacing: 0.05em;
+    letter-spacing: 0.08em;
 }
 
 .censor-stamp {
     position: absolute;
-    top: 1rem;
-    right: 1.5rem;
-    padding: 0.75rem 1rem;
+    top: 1.5rem;
+    right: 2rem;
+    padding: 1rem 1.25rem;
     border: 4px double var(--red-stamp);
     color: var(--red-stamp);
     font-family: 'Special Elite', monospace;
-    font-size: 0.7rem;
-    letter-spacing: 0.15em;
+    font-size: 0.75rem;
+    letter-spacing: 0.2em;
     text-align: center;
-    transform: rotate(12deg);
+    transform: rotate(15deg);
     opacity: 0.5;
+    z-index: 2;
 }
 
 .censor-stamp span {
     display: block;
-    line-height: 1.3;
+    line-height: 1.4;
 }
 
 /* ===========================================
    LETTER CONTENT - SCAN + TRANSCRIPTION
+   Dramatic Split View
    =========================================== */
 
 .letter-content {
     display: grid;
     grid-template-columns: 1fr 1fr;
-    gap: 2rem;
-    margin-bottom: 2rem;
+    gap: 3rem;
+    margin-bottom: 3rem;
 }
 
-/* Scan Section */
+/* ===========================================
+   SCAN SECTION - Dramatic Document Display
+   =========================================== */
+
 .letter-scan {
     display: flex;
     flex-direction: column;
-    gap: 1rem;
+    gap: 1.5rem;
 }
 
 .scan-wrapper {
     position: relative;
-    background: var(--ink-black);
-    padding: 1rem;
-    border-radius: 2px;
-    box-shadow: 0 8px 30px var(--shadow);
+    background: var(--olive-darkest);
+    padding: 1.5rem;
+    box-shadow: 
+        0 25px 80px var(--shadow-heavy),
+        inset 0 0 50px rgba(0,0,0,0.3);
+}
+
+/* Inner gold border */
+.scan-wrapper::before {
+    content: '';
+    position: absolute;
+    inset: 8px;
+    border: 1px solid var(--gold-dark);
+    pointer-events: none;
+    opacity: 0.3;
+}
+
+.scan-image-container {
+    position: relative;
+    background: var(--paper-cream);
+}
+
+.scan-image {
+    width: 100%;
+    height: auto;
+    display: block;
+    box-shadow: 0 5px 20px rgba(0,0,0,0.3);
 }
 
 .scan-placeholder {
@@ -251,8 +311,8 @@
     background: 
         linear-gradient(to bottom, 
             var(--paper-aged) 0%,
-            var(--paper-cream) 20%,
-            var(--paper-cream) 80%,
+            var(--paper-cream) 15%,
+            var(--paper-cream) 85%,
             var(--paper-dark) 100%
         );
     display: flex;
@@ -262,6 +322,7 @@
     overflow: hidden;
 }
 
+/* Notebook lines effect */
 .scan-placeholder::before {
     content: '';
     position: absolute;
@@ -273,48 +334,48 @@
         repeating-linear-gradient(
             0deg,
             transparent,
-            transparent 23px,
-            rgba(100, 149, 237, 0.08) 23px,
-            rgba(100, 149, 237, 0.08) 24px
+            transparent 22px,
+            rgba(100, 149, 237, 0.06) 22px,
+            rgba(100, 149, 237, 0.06) 23px
         );
     pointer-events: none;
 }
 
-/* Margin line effect */
+/* Red margin line */
 .scan-placeholder::after {
     content: '';
     position: absolute;
     top: 0;
     bottom: 0;
-    left: 10%;
+    left: 12%;
     width: 1px;
-    background: rgba(255, 100, 100, 0.2);
+    background: rgba(200, 80, 80, 0.15);
 }
 
 .placeholder-inner {
     display: flex;
     flex-direction: column;
     align-items: center;
-    gap: 0.5rem;
+    gap: 0.75rem;
     color: var(--olive-medium);
     text-align: center;
-    opacity: 0.5;
+    opacity: 0.4;
 }
 
 .scan-icon {
-    font-size: 3rem;
+    font-size: 4rem;
 }
 
 .scan-text {
     font-family: 'Special Elite', monospace;
     font-size: 1rem;
-    letter-spacing: 0.1em;
+    letter-spacing: 0.15em;
     text-transform: uppercase;
 }
 
 .scan-dimensions {
-    font-family: 'Source Serif 4', Georgia, serif;
-    font-size: 0.8rem;
+    font-family: 'Crimson Text', Georgia, serif;
+    font-size: 0.85rem;
     font-style: italic;
 }
 
@@ -324,8 +385,46 @@
     left: 0;
     right: 0;
     bottom: 0;
-    border: 1px solid rgba(255, 255, 255, 0.1);
+    border: 1px solid rgba(255, 255, 255, 0.05);
     pointer-events: none;
+}
+
+/* Page Navigation for multi-page letters */
+.page-navigation {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 1rem;
+    padding: 1rem;
+    background: rgba(0,0,0,0.2);
+}
+
+.page-btn {
+    font-family: 'Special Elite', monospace;
+    font-size: 0.8rem;
+    padding: 0.5rem 1rem;
+    background: var(--olive-primary);
+    color: var(--paper-cream);
+    border: 1px solid var(--olive-medium);
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.page-btn:hover:not(:disabled) {
+    background: var(--olive-medium);
+    border-color: var(--gold-dark);
+}
+
+.page-btn:disabled {
+    opacity: 0.3;
+    cursor: not-allowed;
+}
+
+.page-indicator {
+    font-family: 'Special Elite', monospace;
+    font-size: 0.85rem;
+    color: var(--paper-aged);
+    letter-spacing: 0.1em;
 }
 
 .scan-controls {
@@ -337,64 +436,77 @@
 .scan-btn {
     font-family: 'Special Elite', monospace;
     font-size: 0.8rem;
-    padding: 0.5rem 1rem;
+    padding: 0.6rem 1.25rem;
     background: var(--olive-primary);
     color: var(--paper-cream);
-    border: none;
+    border: 1px solid var(--olive-medium);
     cursor: pointer;
     display: flex;
     align-items: center;
     gap: 0.5rem;
-    transition: background 0.2s ease;
+    transition: all 0.3s ease;
 }
 
 .scan-btn:hover {
     background: var(--olive-medium);
+    border-color: var(--gold-dark);
+    color: var(--gold);
 }
 
 .scan-info {
-    font-family: 'Source Serif 4', Georgia, serif;
-    font-size: 0.8rem;
+    font-family: 'Crimson Text', Georgia, serif;
+    font-size: 0.85rem;
     color: var(--olive-faded);
     font-style: italic;
 }
 
-/* Transcription Section */
+/* ===========================================
+   TRANSCRIPTION SECTION
+   =========================================== */
+
 .letter-transcription {
     background: var(--paper-cream);
-    border-radius: 2px;
-    box-shadow: 0 4px 20px var(--shadow);
+    box-shadow: 
+        0 20px 60px var(--shadow-heavy),
+        0 8px 25px var(--shadow-medium);
     overflow: hidden;
+    display: flex;
+    flex-direction: column;
 }
 
 .transcription-header {
-    background: var(--olive-primary);
-    padding: 1rem 1.5rem;
+    background: 
+        linear-gradient(135deg, var(--olive-dark) 0%, var(--olive-primary) 100%);
+    padding: 1.25rem 2rem;
     display: flex;
     justify-content: space-between;
     align-items: center;
+    border-bottom: 3px solid var(--gold-dark);
 }
 
 .transcription-header h2 {
     font-family: 'Special Elite', monospace;
     font-size: 0.9rem;
-    letter-spacing: 0.2em;
+    letter-spacing: 0.25em;
     text-transform: uppercase;
     color: var(--paper-cream);
     margin: 0;
 }
 
 .typewriter-icon {
-    font-size: 1.25rem;
-    opacity: 0.7;
+    font-size: 1.5rem;
+    opacity: 0.6;
 }
 
 .transcription-body {
-    padding: 2rem;
+    padding: 2.5rem;
     color: var(--ink-black);
     position: relative;
+    flex: 1;
+    overflow-y: auto;
 }
 
+/* Paper lines */
 .transcription-body::before {
     content: '';
     position: absolute;
@@ -407,16 +519,16 @@
             0deg,
             transparent,
             transparent 27px,
-            rgba(139, 69, 19, 0.04) 27px,
-            rgba(139, 69, 19, 0.04) 28px
+            rgba(139, 69, 19, 0.03) 27px,
+            rgba(139, 69, 19, 0.03) 28px
         );
     pointer-events: none;
 }
 
 .letter-salutation {
     font-family: 'Special Elite', 'Courier New', monospace;
-    font-size: 1.1rem;
-    margin-bottom: 1.5rem;
+    font-size: 1.15rem;
+    margin-bottom: 2rem;
     color: var(--ink-black);
     position: relative;
 }
@@ -428,8 +540,8 @@
 .letter-text p {
     font-family: 'Special Elite', 'Courier New', monospace;
     font-size: 0.95rem;
-    line-height: 1.8;
-    margin-bottom: 1.25rem;
+    line-height: 2;
+    margin-bottom: 1.5rem;
     text-align: justify;
     color: var(--ink-faded);
 }
@@ -439,7 +551,7 @@
 }
 
 .letter-closing {
-    margin-top: 2rem;
+    margin-top: 2.5rem;
     font-family: 'Special Elite', 'Courier New', monospace;
     font-size: 1rem;
     position: relative;
@@ -452,14 +564,15 @@
 
 .signature {
     font-style: italic;
-    font-size: 1.1rem;
+    font-size: 1.2rem;
     color: var(--ink-black);
     margin-left: 2rem;
+    margin-top: 0.5rem;
 }
 
 .letter-postscript {
-    margin-top: 1.5rem;
-    padding-top: 1rem;
+    margin-top: 2rem;
+    padding-top: 1.25rem;
     border-top: 1px dashed var(--olive-light);
     font-family: 'Special Elite', 'Courier New', monospace;
     font-size: 0.9rem;
@@ -473,25 +586,25 @@
 
 .transcription-notes {
     background: var(--paper-dark);
-    padding: 1.5rem 2rem;
+    padding: 1.75rem 2.5rem;
     border-top: 2px solid var(--olive-light);
 }
 
 .transcription-notes h3 {
     font-family: 'Special Elite', monospace;
     font-size: 0.75rem;
-    letter-spacing: 0.15em;
+    letter-spacing: 0.2em;
     text-transform: uppercase;
-    color: var(--olive-medium);
-    margin-bottom: 0.5rem;
+    color: var(--olive-primary);
+    margin-bottom: 0.75rem;
 }
 
 .transcription-notes p {
-    font-family: 'Source Serif 4', Georgia, serif;
-    font-size: 0.85rem;
+    font-family: 'Crimson Text', Georgia, serif;
+    font-size: 0.9rem;
     color: var(--ink-faded);
     font-style: italic;
-    line-height: 1.6;
+    line-height: 1.7;
     margin: 0;
 }
 
@@ -503,32 +616,46 @@
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: 1.5rem 0;
-    border-top: 2px solid var(--olive-medium);
-    border-bottom: 2px solid var(--olive-medium);
+    padding: 2rem 0;
+    border-top: 1px solid var(--olive-medium);
+    border-bottom: 1px solid var(--olive-medium);
+    position: relative;
+}
+
+.letter-nav::before {
+    content: '';
+    position: absolute;
+    top: -1px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 100px;
+    height: 1px;
+    background: linear-gradient(90deg, transparent, var(--gold-dark), transparent);
 }
 
 .nav-link {
     display: flex;
     align-items: center;
-    gap: 0.5rem;
+    gap: 0.75rem;
     font-family: 'Special Elite', monospace;
-    font-size: 0.85rem;
+    font-size: 0.9rem;
     color: var(--paper-aged);
     text-decoration: none;
-    padding: 0.75rem 1.25rem;
-    border: 1px solid var(--olive-light);
-    transition: all 0.2s ease;
-    letter-spacing: 0.05em;
+    padding: 0.85rem 1.5rem;
+    border: 1px solid var(--olive-medium);
+    background: rgba(0,0,0,0.15);
+    transition: all 0.3s ease;
+    letter-spacing: 0.08em;
 }
 
 .nav-link:hover:not(.disabled) {
-    background: var(--olive-medium);
-    border-color: var(--paper-aged);
+    background: var(--olive-primary);
+    border-color: var(--gold-dark);
+    color: var(--gold);
 }
 
 .nav-link.disabled {
-    opacity: 0.3;
+    opacity: 0.25;
     cursor: not-allowed;
 }
 
@@ -539,44 +666,133 @@
 
 .nav-link.home:hover {
     background: var(--olive-medium);
+    border-color: var(--gold-dark);
 }
 
 .nav-arrow {
-    font-size: 1.1rem;
+    font-size: 1.2rem;
+    transition: transform 0.3s ease;
 }
 
 .nav-link.prev:hover:not(.disabled) .nav-arrow {
-    transform: translateX(-3px);
+    transform: translateX(-5px);
 }
 
 .nav-link.next:hover:not(.disabled) .nav-arrow {
-    transform: translateX(3px);
+    transform: translateX(5px);
 }
 
-.nav-arrow {
-    transition: transform 0.2s ease;
+/* ===========================================
+   LIGHTBOX - Full Resolution Image Viewer
+   =========================================== */
+
+.lightbox {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(10, 12, 8, 0.97);
+    z-index: 2000;
+    display: none;
+    align-items: center;
+    justify-content: center;
+    padding: 2rem;
+}
+
+.lightbox.active {
+    display: flex;
+}
+
+.lightbox-content {
+    position: relative;
+    max-width: 90vw;
+    max-height: 90vh;
+}
+
+.lightbox-image {
+    max-width: 100%;
+    max-height: 85vh;
+    box-shadow: 0 30px 100px rgba(0,0,0,0.8);
+}
+
+.lightbox-close {
+    position: absolute;
+    top: -50px;
+    right: 0;
+    font-family: 'Special Elite', monospace;
+    font-size: 1rem;
+    padding: 0.5rem 1rem;
+    background: var(--olive-primary);
+    color: var(--paper-cream);
+    border: 1px solid var(--olive-medium);
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.lightbox-close:hover {
+    background: var(--rust);
+    border-color: var(--rust);
+}
+
+.lightbox-nav {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    font-size: 2rem;
+    padding: 1rem;
+    background: var(--olive-primary);
+    color: var(--paper-cream);
+    border: none;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.lightbox-nav:hover {
+    background: var(--olive-medium);
+    color: var(--gold);
+}
+
+.lightbox-prev {
+    left: -80px;
+}
+
+.lightbox-next {
+    right: -80px;
 }
 
 /* ===========================================
    RESPONSIVE - LETTER PAGE
    =========================================== */
 
-@media (max-width: 1024px) {
+@media (max-width: 1200px) {
     .letter-content {
         grid-template-columns: 1fr;
+        gap: 2rem;
     }
     
-    .scan-placeholder {
-        max-width: 500px;
+    .scan-wrapper {
+        max-width: 600px;
         margin: 0 auto;
     }
-    
+}
+
+@media (max-width: 900px) {
     .metadata-grid {
         grid-template-columns: 1fr 1fr;
     }
     
     .metadata-topics {
         grid-column: span 2;
+    }
+    
+    .censor-stamp {
+        position: relative;
+        top: auto;
+        right: auto;
+        transform: rotate(0);
+        margin-top: 1.5rem;
+        display: inline-block;
     }
 }
 
@@ -595,15 +811,6 @@
         grid-column: span 1;
     }
     
-    .censor-stamp {
-        position: relative;
-        top: auto;
-        right: auto;
-        transform: rotate(0);
-        margin-top: 1rem;
-        display: inline-block;
-    }
-    
     .letter-nav {
         flex-direction: column;
         gap: 1rem;
@@ -617,11 +824,11 @@
 
 @media (max-width: 480px) {
     .letter-container {
-        padding: 1rem;
+        padding: 1.5rem 1rem;
     }
     
     .letter-metadata {
-        padding: 1rem 1.25rem;
+        padding: 1.5rem;
     }
     
     .transcription-body {
@@ -630,6 +837,6 @@
     
     .letter-text p {
         font-size: 0.9rem;
-        line-height: 1.7;
+        line-height: 1.8;
     }
 }

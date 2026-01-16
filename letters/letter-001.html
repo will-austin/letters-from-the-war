@@ -3,10 +3,10 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>March 15, 1943 | Letters from the War</title>
+    <title>October 4, 1944 | Letters from the War</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Special+Elite&family=Playfair+Display:wght@400;600;700&family=Source+Serif+4:ital,wght@0,400;0,600;1,400&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600;700&family=Special+Elite&family=Crimson+Text:ital,wght@0,400;0,600;1,400&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="../css/style.css">
     <link rel="stylesheet" href="../css/letter.css">
 </head>
@@ -33,36 +33,40 @@
                 <div class="metadata-primary">
                     <div class="date-block">
                         <span class="date-label">DATE</span>
-                        <span class="date-value">March 15, 1943</span>
+                        <span class="date-value">October 4, 1944</span>
                     </div>
                     <div class="location-block">
                         <span class="location-label">FROM</span>
-                        <span class="location-value">Camp [Redacted], Georgia</span>
+                        <span class="location-value">Neckargartach, Heilbronn, Germany</span>
                     </div>
                 </div>
                 
                 <div class="metadata-secondary">
                     <div class="metadata-item">
+                        <span class="meta-label">FROM:</span>
+                        <span class="meta-value">CPL Chester Shiver</span>
+                    </div>
+                    <div class="metadata-item">
                         <span class="meta-label">TO:</span>
-                        <span class="meta-value">Mrs. [Great-Grandmother's Name]</span>
+                        <span class="meta-value">Mrs. Mae Shiver</span>
+                    </div>
+                    <div class="metadata-item">
+                        <span class="meta-label">ADDRESS:</span>
+                        <span class="meta-value">Route 1 Box 128B, Bluff Springs, Fla.</span>
                     </div>
                     <div class="metadata-item">
                         <span class="meta-label">PAGES:</span>
                         <span class="meta-value">2</span>
-                    </div>
-                    <div class="metadata-item">
-                        <span class="meta-label">CONDITION:</span>
-                        <span class="meta-value">Good</span>
                     </div>
                 </div>
                 
                 <div class="metadata-topics">
                     <span class="topics-label">TOPICS:</span>
                     <div class="topics-list">
-                        <span class="topic-tag">Basic Training</span>
-                        <span class="topic-tag">Camp Life</span>
-                        <span class="topic-tag">Food</span>
-                        <span class="topic-tag">Homesickness</span>
+                        <span class="topic-tag">Coming Home</span>
+                        <span class="topic-tag">Family</span>
+                        <span class="topic-tag">Red Cross</span>
+                        <span class="topic-tag">Guard Duty</span>
                     </div>
                 </div>
             </div>
@@ -78,20 +82,26 @@
         <section class="letter-content">
             <div class="letter-scan">
                 <div class="scan-wrapper">
-                    <div class="scan-placeholder">
-                        <div class="placeholder-inner">
-                            <span class="scan-icon">📜</span>
-                            <span class="scan-text">Letter Scan</span>
-                            <span class="scan-dimensions">High Resolution Image</span>
-                        </div>
+                    <div class="scan-image-container">
+                        <img 
+                            src="../images/scans/100444/100444_1.png" 
+                            alt="Letter from Chester Shiver dated October 4, 1944 - Page 1" 
+                            class="scan-image"
+                            id="letter-scan"
+                            data-page="1"
+                        >
                     </div>
-                    <div class="scan-frame"></div>
+                </div>
+                <div class="page-navigation">
+                    <button class="page-btn" id="prev-page" disabled>← Previous</button>
+                    <span class="page-indicator">Page <span id="current-page">1</span> of <span id="total-pages">2</span></span>
+                    <button class="page-btn" id="next-page">Next →</button>
                 </div>
                 <div class="scan-controls">
-                    <button class="scan-btn" title="View Full Size">
-                        <span>⊕</span> Enlarge
+                    <button class="scan-btn" id="enlarge-btn" title="View Full Size">
+                        <span>⊕</span> View Full Size
                     </button>
-                    <span class="scan-info">Click to view full resolution</span>
+                    <span class="scan-info">Click to view high-resolution scan</span>
                 </div>
             </div>
             
@@ -103,34 +113,32 @@
                 
                 <div class="transcription-body">
                     <div class="letter-salutation">
-                        Dearest Mother,
+                        Dear Mother,
                     </div>
                     
                     <div class="letter-text">
-                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. The weather here has been something awful, rain every day it seems, but the boys and I make do as best we can.</p>
+                        <p>Just a line to let you know that I'm fine. I have a little cold, but nothing bad.</p>
                         
-                        <p>Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. The food here is nothing like your cooking, but I suppose that's to be expected. The mess hall serves something they call "chipped beef on toast" — the fellas have another name for it that I won't write here!</p>
+                        <p>Mother, I think I get to come home next month. I'm supposed to leave around the 15th of this month. Maybe this time I'll come with the outfit.</p>
                         
-                        <p>Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Training is hard but fair. The sergeant is a tough old bird from Brooklyn, but he knows what he's about and I'm learning plenty.</p>
+                        <p>I got the letter from you with the stamps and the stuff. The stamps sure came in handy too—I didn't have a one.</p>
                         
-                        <p>Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. I think of you and home often, especially at night when things get quiet. The stars here look the same as they do back home, which is a comfort.</p>
+                        <p>I hope my babies are alright by now. The Red Cross sent me a copy of a cablegram from the Red Cross at home. They said, "Baby improving" but it didn't request my presence at home. It said that Dr. John reported that.</p>
                         
-                        <p>Please give my love to everyone. Tell Pop I'll write him separately about [REDACTED BY CENSOR]. Kiss little Sarah for me.</p>
+                        <p>I'm on guard today and it's time for one to go on. It's only 8 A.M. now.</p>
+                        
+                        <p>Be sweet and tell all hello for me.</p>
                     </div>
                     
                     <div class="letter-closing">
-                        <p>Your loving son,</p>
-                        <p class="signature">[Grandfather's Name]</p>
-                    </div>
-                    
-                    <div class="letter-postscript">
-                        <p><strong>P.S.</strong> — Could you send some of your oatmeal cookies if you get the chance? The boys would be mighty grateful.</p>
+                        <p>Love,</p>
+                        <p class="signature">Chester</p>
                     </div>
                 </div>
                 
                 <div class="transcription-notes">
                     <h3>Archival Notes</h3>
-                    <p>This letter was written during basic training at [Camp Name]. The original envelope has been preserved separately. Some portions were redacted by military censors before mailing.</p>
+                    <p>This letter was written from Neckargartach, a district of Heilbronn in southern Germany. Chester expresses hope about coming home soon and mentions communication with the Red Cross regarding family back home. The letter shows the pre-printed address of his mother, Mrs. Mae Shiver, in Bluff Springs, Florida.</p>
                 </div>
             </div>
         </section>
@@ -151,6 +159,16 @@
         </nav>
     </main>
 
+    <!-- Lightbox for full-size image viewing -->
+    <div class="lightbox" id="lightbox">
+        <div class="lightbox-content">
+            <button class="lightbox-close" id="lightbox-close">✕ Close</button>
+            <button class="lightbox-nav lightbox-prev" id="lightbox-prev">←</button>
+            <img src="" alt="Full size letter scan" class="lightbox-image" id="lightbox-image">
+            <button class="lightbox-nav lightbox-next" id="lightbox-next">→</button>
+        </div>
+    </div>
+
     <footer class="main-footer">
         <div class="footer-content">
             <p>Austin Family Archive • <a href="https://willaustin.net">willaustin.net</a></p>
@@ -159,11 +177,116 @@
     </footer>
 
     <script>
-        // Simple lightbox functionality for image viewing
-        document.querySelector('.scan-btn')?.addEventListener('click', function() {
-            // Future: Implement full-size image lightbox
-            alert('Full resolution image viewer coming soon!');
+        // Letter pages configuration
+        const pages = [
+            '../images/scans/100444/100444_1.png',
+            '../images/scans/100444/100444_2.png'
+        ];
+        let currentPage = 1;
+        const totalPages = pages.length;
+
+        // DOM elements
+        const scanImage = document.getElementById('letter-scan');
+        const prevBtn = document.getElementById('prev-page');
+        const nextBtn = document.getElementById('next-page');
+        const currentPageSpan = document.getElementById('current-page');
+        const totalPagesSpan = document.getElementById('total-pages');
+        const enlargeBtn = document.getElementById('enlarge-btn');
+        const lightbox = document.getElementById('lightbox');
+        const lightboxImage = document.getElementById('lightbox-image');
+        const lightboxClose = document.getElementById('lightbox-close');
+        const lightboxPrev = document.getElementById('lightbox-prev');
+        const lightboxNext = document.getElementById('lightbox-next');
+
+        // Update page display
+        function updatePage() {
+            scanImage.src = pages[currentPage - 1];
+            scanImage.alt = `Letter from Chester Shiver dated October 4, 1944 - Page ${currentPage}`;
+            currentPageSpan.textContent = currentPage;
+            
+            prevBtn.disabled = currentPage === 1;
+            nextBtn.disabled = currentPage === totalPages;
+            
+            if (lightbox.classList.contains('active')) {
+                lightboxImage.src = pages[currentPage - 1];
+            }
+        }
+
+        // Page navigation
+        prevBtn.addEventListener('click', () => {
+            if (currentPage > 1) {
+                currentPage--;
+                updatePage();
+            }
         });
+
+        nextBtn.addEventListener('click', () => {
+            if (currentPage < totalPages) {
+                currentPage++;
+                updatePage();
+            }
+        });
+
+        // Lightbox functionality
+        enlargeBtn.addEventListener('click', () => {
+            lightboxImage.src = pages[currentPage - 1];
+            lightbox.classList.add('active');
+            document.body.style.overflow = 'hidden';
+        });
+
+        scanImage.addEventListener('click', () => {
+            lightboxImage.src = pages[currentPage - 1];
+            lightbox.classList.add('active');
+            document.body.style.overflow = 'hidden';
+        });
+
+        lightboxClose.addEventListener('click', () => {
+            lightbox.classList.remove('active');
+            document.body.style.overflow = '';
+        });
+
+        lightbox.addEventListener('click', (e) => {
+            if (e.target === lightbox) {
+                lightbox.classList.remove('active');
+                document.body.style.overflow = '';
+            }
+        });
+
+        lightboxPrev.addEventListener('click', (e) => {
+            e.stopPropagation();
+            if (currentPage > 1) {
+                currentPage--;
+                updatePage();
+            }
+        });
+
+        lightboxNext.addEventListener('click', (e) => {
+            e.stopPropagation();
+            if (currentPage < totalPages) {
+                currentPage++;
+                updatePage();
+            }
+        });
+
+        // Keyboard navigation
+        document.addEventListener('keydown', (e) => {
+            if (lightbox.classList.contains('active')) {
+                if (e.key === 'Escape') {
+                    lightbox.classList.remove('active');
+                    document.body.style.overflow = '';
+                } else if (e.key === 'ArrowLeft' && currentPage > 1) {
+                    currentPage--;
+                    updatePage();
+                } else if (e.key === 'ArrowRight' && currentPage < totalPages) {
+                    currentPage++;
+                    updatePage();
+                }
+            }
+        });
+
+        // Initialize
+        totalPagesSpan.textContent = totalPages;
+        scanImage.style.cursor = 'pointer';
     </script>
 </body>
 </html>
