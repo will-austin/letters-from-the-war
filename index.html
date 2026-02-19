@@ -8,26 +8,210 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600;700&family=Special+Elite&family=Crimson+Text:ital,wght@0,400;0,600;1,400&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="css/style.css">
+    <style>
+        /* Hero Section with Letters Photo */
+        .hero-section {
+            position: relative;
+            min-height: 70vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            overflow: hidden;
+        }
+        
+        .hero-background {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: 0;
+        }
+        
+        .hero-background img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            object-position: center 30%;
+            filter: brightness(0.35) saturate(0.8) sepia(0.2);
+        }
+        
+        .hero-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: 
+                linear-gradient(to bottom, 
+                    rgba(26, 29, 21, 0.6) 0%, 
+                    rgba(26, 29, 21, 0.4) 40%,
+                    rgba(26, 29, 21, 0.6) 70%,
+                    rgba(26, 29, 21, 0.95) 100%
+                );
+            z-index: 1;
+        }
+        
+        .hero-content {
+            position: relative;
+            z-index: 2;
+            text-align: center;
+            padding: 2rem;
+            max-width: 900px;
+        }
+        
+        .hero-content .insignia {
+            margin-bottom: 2rem;
+        }
+        
+        .hero-content .star {
+            font-size: 4rem;
+            color: var(--gold);
+            text-shadow: 
+                0 0 40px rgba(196, 163, 90, 0.6),
+                0 4px 8px var(--shadow-heavy);
+            display: inline-block;
+            animation: star-pulse 4s ease-in-out infinite;
+        }
+        
+        .hero-content h1 {
+            font-family: 'Cinzel', 'Times New Roman', serif;
+            font-size: clamp(3rem, 8vw, 5.5rem);
+            font-weight: 700;
+            letter-spacing: 0.2em;
+            text-transform: uppercase;
+            color: var(--paper-cream);
+            text-shadow: 
+                0 4px 12px var(--shadow-heavy),
+                0 0 80px rgba(196, 163, 90, 0.25);
+            margin-bottom: 1.5rem;
+            line-height: 1.1;
+        }
+        
+        .hero-content .subtitle {
+            font-family: 'Special Elite', 'Courier New', monospace;
+            font-size: 1.2rem;
+            color: var(--gold);
+            letter-spacing: 0.35em;
+            text-transform: uppercase;
+            margin-bottom: 2rem;
+        }
+        
+        .hero-content .tagline {
+            font-family: 'Crimson Text', Georgia, serif;
+            font-size: 1.25rem;
+            color: var(--paper-aged);
+            font-style: italic;
+            max-width: 600px;
+            margin: 0 auto;
+            line-height: 1.6;
+            opacity: 0.9;
+        }
+        
+        .scroll-indicator {
+            position: absolute;
+            bottom: 2rem;
+            left: 50%;
+            transform: translateX(-50%);
+            z-index: 2;
+            color: var(--gold);
+            font-size: 1.5rem;
+            animation: bounce 2s ease-in-out infinite;
+            opacity: 0.6;
+        }
+        
+        @keyframes bounce {
+            0%, 100% { transform: translateX(-50%) translateY(0); }
+            50% { transform: translateX(-50%) translateY(10px); }
+        }
+        
+        /* Updated portrait styles for actual photo */
+        .portrait-frame {
+            position: relative;
+            width: 100%;
+            max-width: 320px;
+            background: var(--olive-dark);
+            border: 12px solid var(--olive-primary);
+            box-shadow: 
+                inset 0 0 30px rgba(0,0,0,0.4),
+                0 15px 40px var(--shadow-heavy),
+                0 0 0 1px var(--gold-dark);
+            z-index: 1;
+            overflow: hidden;
+        }
+        
+        .portrait-frame img {
+            width: 100%;
+            height: auto;
+            display: block;
+            filter: sepia(0.1) contrast(1.05);
+        }
+        
+        .portrait-caption {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            background: linear-gradient(to top, rgba(0,0,0,0.8), transparent);
+            padding: 2rem 1rem 1rem;
+            text-align: center;
+        }
+        
+        .portrait-caption span {
+            font-family: 'Special Elite', monospace;
+            font-size: 0.8rem;
+            color: var(--paper-aged);
+            letter-spacing: 0.15em;
+            text-transform: uppercase;
+        }
+        
+        /* Hide default header since we have hero */
+        .main-header {
+            display: none;
+        }
+        
+        @media (max-width: 768px) {
+            .hero-section {
+                min-height: 60vh;
+            }
+            
+            .hero-content h1 {
+                letter-spacing: 0.1em;
+            }
+            
+            .hero-content .subtitle {
+                letter-spacing: 0.15em;
+                font-size: 1rem;
+            }
+        }
+    </style>
 </head>
 <body>
     <div class="film-grain"></div>
     
-    <header class="main-header">
-        <div class="header-content">
+    <!-- Hero Section with Letters Photo Background -->
+    <section class="hero-section">
+        <div class="hero-background">
+            <img src="images/photos/ww2letters.png" alt="Collection of World War II letters and postcards">
+        </div>
+        <div class="hero-overlay"></div>
+        <div class="hero-content">
             <div class="insignia">
                 <span class="star">★</span>
             </div>
             <h1>Letters from the War</h1>
-            <p class="subtitle">Correspondence of CPL Chester Shiver • 1944–1945</p>
-            <div class="header-line"></div>
+            <p class="subtitle">CPL Chester Shiver • 1944–1945</p>
+            <p class="tagline">A collection of wartime correspondence preserved for future generations</p>
         </div>
-    </header>
+        <div class="scroll-indicator">↓</div>
+    </section>
 
     <main class="container">
         <section class="intro-section">
             <div class="portrait-frame">
-                <div class="portrait-placeholder">
-                    <span class="placeholder-text">Chester<br>Shiver</span>
+                <img src="images/photos/chester_shiver.jpg" alt="CPL Chester Shiver in his Army uniform, World War II">
+                <div class="portrait-caption">
+                    <span>CPL Chester Shiver</span>
                 </div>
                 <div class="frame-corner tl"></div>
                 <div class="frame-corner tr"></div>
